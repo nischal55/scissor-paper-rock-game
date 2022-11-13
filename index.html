@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock | Paper</title>
+</head>
+<style>
+    img{
+        margin-left: 3%;
+        padding: 10px;
+        cursor: pointer;
+    }
+    img:hover{
+        box-shadow: 0px 5px 10px black;
+    }
+    h1{
+        margin-top: 5%;
+    }
+    h2{
+        margin-top: 5%;
+        padding: 10px;
+        border: 3px solid red;
+        width: 30%;
+    }
+    #comp{
+        width:90%;
+        height: 200px;
+        background-image: none;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-top: 5%;
+        margin-left: 5%;
+    }
+</style>
+<body>
+    <center><h1 id="head">Rock, Paper and Scissors</h1>
+    <h2>Choose Your Choice:</h2></center><br>
+    <center><div class="game">
+    <img src="rock.png" alt="rock" width="100"  id="rock" onclick="u_choice1()"> 
+    <img src="paper.png" alt="rock" width="100"  id="rock"onclick="u_choice2()"> 
+    <img src="scissors.png" alt="rock" width="100"  id="rock" onclick="u_choice3()"> <br><br>
+    <h2>Computer's Choices: 
+        
+        <div id="comp">
+
+        </div>
+    </h2>
+</div></center>
+
+
+    <script>
+        const choices = ["rock","paper","scissors"];
+        var a= Math.floor(Math.random()*3);
+        
+        //var b=prompt("Enter choice");
+        function u_choice1(){
+            game("rock");
+        }
+        function u_choice2(){
+            game("paper");
+        }
+        function u_choice3(){
+            game("scissors");
+        }
+
+        function game(user_choice){
+            var b = user_choice;
+            var c = choices[a];
+         
+            if(c=="rock"){
+                document.getElementById('comp').style.backgroundImage="url('rock.png')";
+               
+            }else if(c=="paper"){
+                document.getElementById('comp').style.backgroundImage="url('paper.png')";
+
+            }else{
+                document.getElementById('comp').style.backgroundImage="url('scissors.png')";
+
+            }
+
+
+            setTimeout(function(){
+            if(c=="rock" && b=="scissors"){
+                alert("Computer wins...");
+                window.location.reload();
+            }else if(c=="paper" && b=="rock"){
+                alert("Computer wins...");
+                window.location.reload();
+            }else if(c=="scissors"&& b=="paper"){
+                alert("Computer wins...");
+                window.location.reload();
+            }else if(b==c){
+                alert("Draw");
+                window.location.reload();
+            }else{
+                alert("You win...");
+                window.location.reload();
+            }
+        },1000);
+        }
+        
+        
+       
+    </script>
+</body>
+</html>
